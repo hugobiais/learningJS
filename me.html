@@ -27,9 +27,14 @@
             // changing the content of the page
             document.getElementById("firstname").innerHTML = `Nice to meet you ${firstName}!`;
             document.getElementById("lastname").innerHTML = `Your last name is ${lastName} right ? That's a pretty cool last name!`;
+            document.getElementById("mirror").innerHTML = `Your full name in the mirror would look like that: "${reverse(firstName + " " + lastName)}". Nice isn't it?`;
             document.getElementById("age").innerHTML = `You are ${age} years old.`;
             document.getElementById("button").innerHTML = "Introduce yourself again!";
 
+        }
+
+        function reverse(str){
+            return str.split("").reverse().join("");
         }
         
     </script>
@@ -40,6 +45,7 @@
 
     <p id="firstname"></p>
     <p id="lastname"></p>
+    <p id="mirror"></p>
     <p id="age"></p>
 
     <button id="button" type="button" onclick="intro()">Introduce yourself!</button>
