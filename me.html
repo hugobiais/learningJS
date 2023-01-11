@@ -1,0 +1,50 @@
+<!--
+    Note on the <script> tag:
+        JS scripts can either be contained in the <head>, 
+        in the <body> (in which case make sure to place the script at the END of the body)
+        or in a seperate file (to integrate them, we use <script src="filename.js"></script> either in the <head> or <body>)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+
+    <script>
+
+        function intro(){
+            // page that takes user input and displays informations about the user
+            var firstName = prompt("What is your first name?");
+            var lastName = prompt("What is your last name?");
+            var age = parseInt(prompt("What is your age?"));
+
+            // Usefull way of encapsulating variables in strings without using the + operator
+            console.log(`Your first name is ${firstName} and your last name is ${lastName}. You are ${age} years old.`);
+
+            // changing the content of the page
+            document.getElementById("firstname").innerHTML = `Nice to meet you ${firstName}!`;
+            document.getElementById("lastname").innerHTML = `Your last name is ${lastName} right ? That's a pretty cool last name!`;
+            document.getElementById("age").innerHTML = `You are ${age} years old.`;
+            document.getElementById("button").innerHTML = "Introduce yourself again!";
+
+        }
+        
+    </script>
+</head>
+<body>
+
+    <h2>Hi! I'd like to get to know you!</h2>
+
+    <p id="firstname"></p>
+    <p id="lastname"></p>
+    <p id="age"></p>
+
+    <button id="button" type="button" onclick="intro()">Introduce yourself!</button>
+    
+</body>
+</html>
+
+

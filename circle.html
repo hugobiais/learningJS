@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Calculator</title>
+
+    <script src="circle.js"></script>
+
+</head>
+<body>
+
+    <h2>Welcome to the Circle Calculator</h2>
+
+    <!-- Better way of using button, better inside forms, better for SEO ? -->
+    <form>
+        <label for="radius">Circle radius (in cm):</label><br>
+        <input type="text" id="radius" value=0><br><br>
+        <input type="button" value="Compute" onclick="compute()">
+        <input type="reset"> 
+    </form>
+
+    <p id="circum"></p>
+    <p id="area"></p>
+    <p id="vol"></p>
+    
+</body>
+</html>
