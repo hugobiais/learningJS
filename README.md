@@ -6,4 +6,3 @@ To run those project, use the command `node filename.js` or just open the `html`
 
 1. [me.html](me.html), a simple website that takes user input and shows them on the page.
 2. [circle.html](circle.html) and [circle.js](circle.js), a website and a JS file that compute informations about a circle given user input.
-3. 
