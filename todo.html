@@ -1,0 +1,32 @@
+<!-- 
+    Functionalities left to add:
+    - add a way to remove items from the list 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+
+    <script src="todo.js"></script>
+</head>
+<body>
+
+    <h2>ToDo List:</h2>
+
+    <ul id="todoList"></ul>
+
+    <br>
+
+    <form>
+        <label>Add to ToDo list:</label><br>
+        <input type="text" id="todoItem">
+        <input type="button" value="Add" onclick='addItem(); document.getElementById("todoItem").value = ""'>
+        <input type="button" value="Remove" onclick='removeItem(); document.getElementById("todoItem").value = ""'>
+    </form>
+    
+</body>
+</html>

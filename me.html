@@ -17,24 +17,42 @@
 
         function intro(){
             // page that takes user input and displays informations about the user
-            var firstName = prompt("What is your first name?");
-            var lastName = prompt("What is your last name?");
-            var age = parseInt(prompt("What is your age?"));
+
+            const user = { //declaring a user object (it's common practice to declare an object with const)
+                firstName: prompt("What is your first name?"),
+                lastName: prompt("What is your last name?"),
+                age: parseInt(prompt("How old will you be at the end of the current year?")),
+                fullName: function() { //that's how we make a object function
+                    return this.firstName + " " + this.lastName; //this refers to the field of the object the function is called on
+                },
+                yearOfBirth: function(){
+                    //using const to create an object doesn't make the object's attributes immutable ! It just makes the variable identifer not reassignable.
+                    const d = new Date(); //creating a Date() object using the new keyword
+                    return d.getFullYear() - this.age;
+                }
+            }
 
             // Usefull way of encapsulating variables in strings without using the + operator
-            console.log(`Your first name is ${firstName} and your last name is ${lastName}. You are ${age} years old.`);
+            console.log(`Your first name is ${user.firstName} and your last name is ${user.lastName}. You are ${user.age} years old.`);
 
-            // changing the content of the page
-            document.getElementById("firstname").innerHTML = `Nice to meet you ${firstName}!`;
-            document.getElementById("lastname").innerHTML = `Your last name is ${lastName} right ? That's a pretty cool last name!`;
-            document.getElementById("mirror").innerHTML = `Your full name in the mirror would look like that: "${reverse(firstName + " " + lastName)}". Nice isn't it?`;
-            document.getElementById("age").innerHTML = `You are ${age} years old.`;
-            document.getElementById("button").innerHTML = "Introduce yourself again!";
+            // changing the content of the page (using innerHTML to write into an HTML element)
+            document.getElementById("firstname").innerHTML = `Nice to meet you ${user.firstName}!`;
+            document.getElementById("lastname").innerHTML = `Your last name is ${user.lastName} right ? That's a pretty cool last name!`;
+            document.getElementById("mirror").innerHTML = `Your full name in the mirror would look like that: "${reverse(user.fullName())}". Nice isn't it?`;
+            document.getElementById("age").innerHTML = `You are ${user.age} years old, which means you were born in ${user.yearOfBirth()} right?`;
+
+            buttonAppear();
 
         }
 
         function reverse(str){
             return str.split("").reverse().join("");
+        }
+
+        // function that's triggered at the end of intro(), it changes the content of the span tag and adds a button in it.
+        // I used single quotes so that the double quotes inside the HTML statement doesn't need to be escaped.
+        function buttonAppear(){
+            document.getElementById("printButton").innerHTML = '<button type="button" onclick="window.print()">Print your informations</button>';
         }
         
     </script>
@@ -48,7 +66,10 @@
     <p id="mirror"></p>
     <p id="age"></p>
 
-    <button id="button" type="button" onclick="intro()">Introduce yourself!</button>
+    <button id="button" type="button" onclick="intro(); this.innerHTML = 'Introduce yourself again'">Introduce yourself!</button>
+
+    <!-- using an invisible span tag with an id to make a button appear when we want to -->
+    <span id="printButton"></span>
     
 </body>
 </html>

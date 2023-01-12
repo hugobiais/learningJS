@@ -1,5 +1,8 @@
 //Computes the basic informations of a circle given it's radius
 
+//declaring a global constant
+const PI = Math.PI;
+
 function compute(){
     // getting the value of form when button is clicked
     var radius = document.getElementById("radius").value;
@@ -10,21 +13,24 @@ function compute(){
 
     //This is a regexp that checks that the field only contains numbers !
     if (!(/^\d+$/.test(radius))){
-        alert("The entered radius is not a number. Try again.");
+        window.alert("The entered radius is not a number. Try again.");
     } else {
-        var circumference = 2 * radius * Math.PI;
-        var area = (radius ** 2) * Math.PI; //using exponents
-        var volume = (radius ** 3) * Math.PI;
+
+        const circle = { //creating a circle objects
+            circumference: 2 * radius * PI,
+            area: (radius ** 2) * PI, //using exponents
+            volume: (radius ** 3) * PI
+        }
 
         //using `` to have better variable encapsulating
         document.getElementById("circum").innerHTML = 
-        `The circumference of your circle is: ${Math.round(circumference)}cm (rounded value)`;
+        `The circumference of your circle is: ${Math.round(circle.circumference)}cm (rounded value)`;
 
         document.getElementById("area").innerHTML = 
-        `The area of your circle is: ${Math.round(area)}cm squared (rounded value)`;
+        `The area of your circle is: ${Math.round(circle.area)}cm squared (rounded value)`;
 
         document.getElementById("vol").innerHTML = 
-        `The volume of your circle is: ${Math.round(volume)}cm cubed (rounded value)`;
+        `The volume of your circle is: ${Math.round(circle.volume)}cm cubed (rounded value)`;
     }
 
 }

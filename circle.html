@@ -16,14 +16,22 @@
     <!-- Better way of using button, better inside forms, better for SEO ? -->
     <form>
         <label for="radius">Circle radius (in cm):</label><br>
-        <input type="text" id="radius" value=0><br><br>
+        <input type="text" id="radius" value=0>
         <input type="button" value="Compute" onclick="compute()">
-        <input type="reset"> 
+        <input type="reset">
     </form>
 
     <p id="circum"></p>
     <p id="area"></p>
     <p id="vol"></p>
+
+    <button onmouseover="this.innerHTML = 'Stop tickling me! HAHA'" onmouseout="this.innerHTML = 'Tickle me'">Tickle me</button>
+
+<!-- 
+    This is another way of having a button using the input tag. Because the input tag doesn't have any innerHTML, we have to change it's content by using value
+
+    <input type="button" value="Tickle me" onmouseover="this.value = 'Stop tickling me! HAHA'" onmouseout="this.value = 'Tickle me'">
+ -->
     
 </body>
 </html>
