@@ -1,4 +1,6 @@
-# How I'm going to learn JavaScript
+# Learning JS
+
+## My Approach
 
 My approach is **project-based learning**. You can find below the list of projects I've done in order to review basic concepts.
 
